@@ -3560,6 +3560,9 @@ class MongolEditableTextState extends State<MongolEditableText>
       withComposing: !widget.readOnly,
     );
   }
+  
+  @override
+  void insertContent(KeyboardInsertedContent content) {}
 }
 
 class _MongolEditable extends LeafRenderObjectWidget {

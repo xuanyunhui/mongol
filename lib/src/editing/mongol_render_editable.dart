@@ -1459,7 +1459,7 @@ class MongolRenderEditable extends RenderBox
     _backgroundRenderObject?.attach(owner);
 
     _tap = TapGestureRecognizer(debugOwner: this)
-      ..onTapDown = _handleTapDown
+      ..onTapDown = _handleTapDown as GestureTapDownCallback?
       ..onTap = _handleTap;
     _longPress = LongPressGestureRecognizer(debugOwner: this)
       ..onLongPress = _handleLongPress;
@@ -1768,11 +1768,11 @@ class MongolRenderEditable extends RenderBox
   ///
   /// When [ignorePointer] is true, an ancestor widget must respond to tap
   /// down events by calling this method.
-  void handleTapDown(TapDownDetails details) {
+  void handleTapDown(TapDragDownDetails details) {
     _lastTapDownPosition = details.globalPosition;
   }
 
-  void _handleTapDown(TapDownDetails details) {
+  void _handleTapDown(TapDragDownDetails details) {
     assert(!ignorePointer);
     handleTapDown(details);
   }
